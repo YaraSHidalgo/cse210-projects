@@ -11,14 +11,7 @@ public class Journal
         "What is one thing I do not want to forget about this day?",
     };
 
-    public void JournalQuestions()
-    {
-        foreach(string question in questions)
-        {
-            string oneQuestion = Console.ReadLine(questions);
-            Console.WriteLine($"{oneQuestion}");
-        }
-    }
+    
 
     public void JournalDateTime()
     {

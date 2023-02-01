@@ -6,13 +6,14 @@ class Program
     {
 
         Console.WriteLine("Welcome to the Journal Program! ");
-        Console.WriteLine();
-        
+        Entry entry = new Entry();
+        entry.DisplayEntry();
+
         Menu menu = new Menu();
-        menu.MenuDisplay();
+       // menu.MenuDisplay();
 
         Journal journal = new Journal();
-        journal.JournalDateTime();
+        //journal.JournalDateTime();
 
     }
 }
