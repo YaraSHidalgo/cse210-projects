@@ -7,6 +7,8 @@ public class Entry
     //Attribute
 
     string _userAnswer;
+    Journal journal = new Journal();
+    
     //Attribute
     
     //Attribute
@@ -29,11 +31,13 @@ public class Entry
         "What is one thing I do not want to forget about this day?",
     };
 
+
     public void DisplayEntry()
     {
         //While loop, the code will not stop if the user answer is not equal to 5 = quit
         while (_userChoose != "5")
         {
+            Console.WriteLine();
             Console.WriteLine("Please, select one of the following choice: ");
 
             // Display the list chooices using a loop for each
@@ -58,7 +62,17 @@ public class Entry
             }
             else if (_userChoose == "1")
             {
+                // if the user choose is equal to 1, random a question to him and break so the code do not continue
                 DisplayQuestions();
+                break;
+            }
+            else if (_userChoose == "2")
+            {
+                Console.WriteLine($"{questions}{_userAnswer}");
+                // print the date and time that is find on the Journal class
+                journal.JournalDateTime();
+                // print the random question again to the user until the answer is quit.
+                DisplayEntry();
                 break;
             }
 
@@ -68,14 +82,20 @@ public class Entry
     //method (function) to run a random question about the user Journal daily
     public void DisplayQuestions()
     {
+        // create a random variable called random
         Random random = new Random();
+        // create an instance to call the random and pass on list(question) and count.
         int question = random.Next(questions.Count);
+        //print random question (pass the lsit questions and the question random)
         Console.Write(questions[question]);  
+        //reading the user answer and store it on variable
         _userAnswer = Console.ReadLine();
 
         // calling the function to display the menu chooices while the user input is not equal to quit = 5.
         DisplayEntry();
     } 
+
+  
 
     
 }
