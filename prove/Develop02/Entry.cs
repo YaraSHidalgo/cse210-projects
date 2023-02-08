@@ -6,20 +6,8 @@ public class Entry
     string _userChoose;
     //Attribute
 
-    string _userAnswer;
-    Journal journal = new Journal();
-    
-    //Attribute
-    
-    //Attribute
-    // create a new string list with the menu chooices to the user and display then on foreach on line 23
-    public List<string> chooices = new List<string>(){ //Attribute
-        "1. Write",
-        "2. Display",
-        "3. Load",
-        "4. Save",
-        "5. Quit",
-    };
+    public string _userAnswer;
+ 
 
     //Attribute
     //create a new public list to random question's about the user day's
@@ -30,6 +18,25 @@ public class Entry
         "Which things am I thankful for today?",
         "What is one thing I do not want to forget about this day?",
     };
+    public string DisplayQuestions()
+    {
+        // create a random variable called random
+        Random random = new Random();
+        // create an instance to call the random and pass on list(question) and count.
+        int question = random.Next(questions.Count);
+        //print random question (pass the lsit questions and the question random)
+        //////Console.Write(questions[question]);  
+        //reading the user answer and store it on variable
+        //_userAnswer = Console.ReadLine();
+
+        return questions[question];
+    } 
+
+    
+        //DateTime theCurrentTime = DateTime.Now;
+        //string dateText = theCurrentTime.ToShortDateString();    
+        //Console.WriteLine($"{dateText}");   
+
 
 
     public void DisplayEntry()
@@ -41,10 +48,10 @@ public class Entry
             Console.WriteLine("Please, select one of the following choice: ");
 
             // Display the list chooices using a loop for each
-            foreach (string choose in chooices)
-            {
-                Console.WriteLine(choose);
-            }
+            //foreach (string choose in chooices)
+           // {
+                //Console.WriteLine(choose);
+           // }
             //After to display the list of the chooices, ask to the user what option he choose
             Console.Write("What do you like to do? ");
             // reading the user chooice 
@@ -70,7 +77,7 @@ public class Entry
             {
                 Console.WriteLine($"{questions}{_userAnswer}");
                 // print the date and time that is find on the Journal class
-                journal.JournalDateTime();
+                //journal.JournalDateTime();
                 // print the random question again to the user until the answer is quit.
                 DisplayEntry();
                 break;
@@ -80,20 +87,6 @@ public class Entry
     }  
 
     //method (function) to run a random question about the user Journal daily
-    public void DisplayQuestions()
-    {
-        // create a random variable called random
-        Random random = new Random();
-        // create an instance to call the random and pass on list(question) and count.
-        int question = random.Next(questions.Count);
-        //print random question (pass the lsit questions and the question random)
-        Console.Write(questions[question]);  
-        //reading the user answer and store it on variable
-        _userAnswer = Console.ReadLine();
-
-        // calling the function to display the menu chooices while the user input is not equal to quit = 5.
-        DisplayEntry();
-    } 
 
   
 
